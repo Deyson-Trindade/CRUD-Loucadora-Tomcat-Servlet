@@ -17,9 +17,7 @@ public class NovoClienteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		Cliente cliente = new Cliente();
-		cliente.setNome("Deyson");
-		request.setAttribute("nome", cliente.getNome());
+
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/cadastroNovoCliente.jsp");
 		
