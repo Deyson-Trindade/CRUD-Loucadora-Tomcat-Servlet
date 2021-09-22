@@ -20,6 +20,14 @@ public class CadastroDeFilmeServlet extends HttpServlet {
 	private static final long serialVersionUID = 4129675844491493651L;
 	
 	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/cadastroDeFilme.jsp");
+		rd.forward(request, response);
+	}
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -42,14 +50,12 @@ public class CadastroDeFilmeServlet extends HttpServlet {
 			statement.setString(3, sinopse);
 			statement.setBoolean(4, estaDisponivel);
 			
-			int rs = statement.executeUpdate();
+			statement.executeUpdate();
 			
-			System.out.println(rs);
 			
 			statement.close();
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/filmeCadastrado.jsp");
-			rd.forward(request, response);
+			response.sendRedirect("filmeCadastrado");
 
 		} catch (Exception e ) {
 			throw new IOException();

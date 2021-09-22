@@ -25,7 +25,7 @@ public class ListaFilmeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String sql = "select * from filme";
+		String sql = "select * from filme where estaDisponivel = 1";
 		
 		ConnectionFactory conFactory = new ConnectionFactory();
 		Connection con = conFactory.getConnection();
@@ -35,7 +35,7 @@ public class ListaFilmeServlet extends HttpServlet {
 			List<Filme> filmes = new ArrayList<>();
 			
 			PreparedStatement stmt = con.prepareStatement(sql);
-			  ResultSet rs = stmt.executeQuery();
+			ResultSet rs = stmt.executeQuery();
 
 
 			  while (rs.next()) {
@@ -45,6 +45,7 @@ public class ListaFilmeServlet extends HttpServlet {
 			      filme.setSinopse(rs.getString("sinopse"));
 			      filme.setAno(rs.getInt("ano"));
 			      filme.setEstaDisponivel(rs.getBoolean("estaDisponivel"));
+			      filme.setId(rs.getInt("id"));
 
 
 			      filmes.add(filme);

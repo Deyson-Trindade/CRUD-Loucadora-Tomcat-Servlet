@@ -10,14 +10,15 @@
 </head>
 <body>
 	<div>
-		<ul class="list-group">
+		<p>Filmes disponíveis para alugar:</p>
+		<ul>
 			<c:forEach items="${filmes}" var="filme">
 				<li class="list-group-item">
 					<ul	class="list-group list-group-horizontal">
 						<li class="list-group-item"><c:out value="${filme.nome}"/></li>
 						<li class="list-group-item"><c:out value="${filme.ano}"/></li>
 						<li class="list-group-item"><c:out value="${filme.sinopse}"/></li>
-						<li class="list-group-item"><c:out value="${filme.estaDisponivel}"/></li>
+						<li class="list-group-item"><a href="/loucadora/alugaFilme?id=${filme.id}">Alugar</a></li>
 					</ul>
 				</li>
 			</c:forEach>

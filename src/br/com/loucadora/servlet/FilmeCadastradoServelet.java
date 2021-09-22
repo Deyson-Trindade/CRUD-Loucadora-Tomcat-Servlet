@@ -10,20 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/novoCliente")
-public class NovoClienteServlet extends HttpServlet {
+
+@WebServlet("/filmeCadastrado")
+public class FilmeCadastradoServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/cadastroNovoCliente.jsp");
-		
+		RequestDispatcher rd = request.getRequestDispatcher("/filmeCadastrado.jsp");
 		rd.forward(request, response);
 		
-		
 	}
+
 
 }
