@@ -1,4 +1,4 @@
-package br.com.loucadora.servlet;
+package br.com.loucadora.model;
 
 public class Filme {
 	
