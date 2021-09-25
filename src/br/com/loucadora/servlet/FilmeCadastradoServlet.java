@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/filmeCadastrado")
-public class FilmeCadastradoServelet extends HttpServlet {
+public class FilmeCadastradoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
