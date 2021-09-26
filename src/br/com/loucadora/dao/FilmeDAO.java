@@ -47,4 +47,32 @@ public class FilmeDAO {
 		
 		return filmes;
 	}
+	
+	public void insere(Filme filme) {
+		final String sql = "insert into filme (nome, ano, sinopse, estaDisponivel) values (?,?,?,?)";
+		
+		try(Connection con = this.conFactory.getConnection(); PreparedStatement stmt = con.prepareStatement(sql);) {
+
+			final String nome = filme.getNome();
+			final int ano = filme.getAno();
+			final String sinopse = filme.getSinopse();
+			final boolean estaDisponivel = filme.getEstaDisponivel();
+
+
+			stmt.setString(1, nome);
+			stmt.setInt(2, ano);
+			stmt.setString(3, sinopse);
+			stmt.setBoolean(4, estaDisponivel);
+			
+			stmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void aluga() {
+		
+	}
 }
