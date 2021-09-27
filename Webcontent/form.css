@@ -1,0 +1,36 @@
+form{
+	height: 50%;
+	width:50%;
+	margin-left: 450px;
+}
+
+h1 {
+	
+	margin: 40px;
+	color: white;
+}
+
+div{
+	color: white;
+	display: block;
+	align-content: center;
+	align-items: flex-end; 
+}
+
+
+.configInputAno{
+	margin-left: 25px;
+}
+.configInputNome{
+	margin-left: 10px;
+}
+.configSinopse{
+	padding-bottom: 15px;
+}
+
+body{
+	background-image: url("cadastraFilmeBG.jpg");
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+}

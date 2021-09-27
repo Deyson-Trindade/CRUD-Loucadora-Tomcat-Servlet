@@ -6,19 +6,23 @@
 <link
 	href=" https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 	rel="stylesheet" />
+<link href="form.css" rel="stylesheet">
 <meta charset="ISO-8859-1">
 <title>Cadastro de filme</title>
 </head>
 <body>
 
+	<h1>Bem vindo ao cadastro de filmes, qual filme você deseja
+		cadastrar no inventário?</h1>
+
 	<form action="/loucadora/cadastroDeFilme" method="post">
-		<div class="form-group">
-
-
-			<label>Nome:</label> <input type="text" name="nome" /> <br> <label>Ano:</label>
-			<input type="number" name="ano" /> <br> <label>Sinopse:</label>
-			<textarea rows="10" cols="30" name="sinopse"></textarea>
-			<label>Disponivel em estoque</label> <input type="checkbox"
+		<div>
+			<label>Nome:</label> <input type="text" name="nome"
+				class="configInputNome" /> <br> <label class="configAno">Ano:</label>
+			<input type="number" name="ano" class="configInputAno" /> <br>
+			<label class="configSinopse">Sinopse:</label>
+			<textarea name="sinopse" rows="5" cols="22"></textarea>
+			<br> <label>Disponivel em estoque</label> <input type="checkbox"
 				name="estaDisponivel" />
 
 			<button type="submit">Enviar</button>
