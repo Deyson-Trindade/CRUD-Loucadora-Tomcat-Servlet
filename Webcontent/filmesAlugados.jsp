@@ -13,7 +13,7 @@
 </head>
 <body>
 <header>
-	<h1>Filmes disponíveis para alugar:</h1>
+	<h1>Filmes Alugados:</h1>
 </header>
 
 	<div >
@@ -29,10 +29,6 @@
 								<p>
 									<c:out value="${filme.sinopse}" />
 								</p>
-								<a class="btn btn-primary"
-									href="/loucadora/alugaFilme?id=${filme.id}">Alugar</a>
-									<a class="btn btn-primary"
-									href="/loucadora/alteraFilme?id=${filme.id}">Alterar</a>
 							</div>
 						</c:forEach>
 					</ul>

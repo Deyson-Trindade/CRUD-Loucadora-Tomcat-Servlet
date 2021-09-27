@@ -13,35 +13,28 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.loucadora.dao.FilmeDAO;
 import br.com.loucadora.model.Filme;
 
-@WebServlet("/listaFilme")
-public class ListaFilmeServlet extends HttpServlet {
 
-	private static final long serialVersionUID = -8785137614145017374L;
+@WebServlet("/filmesAlugados")
+public class FilmesAlugadosServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		try {
-			
-			final FilmeDAO dao = new FilmeDAO();
-			
-			List<Filme> filmes = dao.listarDisponiveis();
-			
-			/*
-			 * if(filmes.isEmpty()) {
-			 * 
-			 *  refatorar depois no jsp para renderização condicional.
-			 * 
-			 * }
-			 */
-			request.setAttribute("filmes", filmes);
 
-			RequestDispatcher rd = request.getRequestDispatcher("/listaFilmes.jsp");
-			rd.forward(request, response);
+			final FilmeDAO dao = new FilmeDAO();
+
+			List<Filme> filmes = dao.listarAlugados();
+			
+			request.setAttribute("filmes", filmes);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		RequestDispatcher rd = request.getRequestDispatcher("/filmesAlugados.jsp");
+		rd.forward(request, response);
 
 	}
 

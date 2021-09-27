@@ -12,8 +12,10 @@
 </head>
 <body>
 	<div class="divStyle">
-		<a class="btn btn-primary btn1" href="loucadora/filmes" >Manutenção de Filmes</a>
-		<a class="btn btn-primary btn2" href="loucadora/clientes" >Manutenção de Clientes</a>
+		<a class="btn btn-primary btn1" href="/loucadora/filmesAlugados" >Filmes Alugados</a>
+		<a class="btn btn-primary btn2" href="/loucadora/listaFilme" >Alugar Filmes</a>
+		<a class="btn btn-primary btn3" href="/loucadora/cadastroDeFilme" >Cadastrar Filme Novo</a>
+		
 	</div>
 </body>
 </html>
