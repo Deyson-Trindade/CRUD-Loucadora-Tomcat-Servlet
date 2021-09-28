@@ -1,0 +1,27 @@
+.cartao-filme{
+	border: solid 2px black;
+	border-radius: 5px;
+	background-color: lightGray;
+	margin: 20px;
+	padding: 15px;
+	font-family: sans-serif;
+}
+
+ul {
+	 list-style-type: none;
+}
+
+.cartao-titulo{
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.cartao-ano{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.cartao-sinopse{
+	font-size: 15px;
+	padding: 5px;
+}

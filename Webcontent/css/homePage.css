@@ -1,0 +1,45 @@
+body{
+	background-image: url("avengersBG.jpg");
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.div-style {
+	height: 100%;
+	width: 50%;
+	display: flex;
+	position: absolute;
+	align-items: center;
+	left: 500px;
+}
+
+.botao {
+	cursor: pointer; 
+	border : 0px;
+	border-radius: 2px;
+	margin: 15px;
+	padding: 5px;
+	background-color: black;
+	border: 0px;
+}
+
+.botao::before {
+	cursor: pointer; 
+	border : 0px;
+	border-radius: 2px;
+	margin: 15px;
+	padding: 5px;
+	background-color: black;
+	border: 0px;
+}
+
+.botao::after {
+	content: "";
+	border: 0px;
+	border-radius: 2px;
+	margin: 15px;
+	padding: 5px;
+	color: black;
+	background-color: white;
+}

@@ -27,13 +27,6 @@ public class ListaFilmeServlet extends HttpServlet {
 			
 			List<Filme> filmes = dao.listarDisponiveis();
 			
-			/*
-			 * if(filmes.isEmpty()) {
-			 * 
-			 *  refatorar depois no jsp para renderização condicional.
-			 * 
-			 * }
-			 */
 			request.setAttribute("filmes", filmes);
 
 			RequestDispatcher rd = request.getRequestDispatcher("/listaFilmes.jsp");
