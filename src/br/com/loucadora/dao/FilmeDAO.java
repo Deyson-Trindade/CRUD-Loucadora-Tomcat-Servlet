@@ -46,7 +46,7 @@ public class FilmeDAO {
 		return filmes;
 	}
 
-	public void insere(Filme filme) {
+	public boolean insere(Filme filme) {
 		final String sql = "insert into filme (nome, ano, sinopse, estaDisponivel) values (?,?,?,?)";
 
 		try (Connection con = this.conFactory.getConnection(); PreparedStatement stmt = con.prepareStatement(sql);) {
@@ -63,14 +63,74 @@ public class FilmeDAO {
 
 			stmt.executeUpdate();
 
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 
 	}
+	
+	public List<Filme> recupera(Integer id) {
+		
+		final List<Filme> filmes = new ArrayList<>();
+		
+		String sql = "SELECT * FROM filme WHERE id = ?";
+		
+		try (Connection con = this.conFactory.getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql);
+				ResultSet rs = stmt.executeQuery()) {
+			
+			stmt.setInt(1, id);
 
-	public void aluga() {
+			if (rs.next()) {
+				
+				Filme filme = new Filme();
+				filme.setNome(rs.getString("nome"));
+				filme.setSinopse(rs.getString("sinopse"));
+				filme.setAno(rs.getInt("ano"));
+				filme.setEstaDisponivel(rs.getBoolean("estaDisponivel"));
+				
+				filmes.add(filme);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return filmes;
+	}
+	
+	public boolean altera(Filme filme) {
+		
+		final String sql = "UPDATE filme set nome = ?, ano=?, sinopse=?, estaDisponivel=? WHERE id = ?";
+		
+		try(Connection con = this.conFactory.getConnection(); PreparedStatement stmt = con.prepareStatement(sql);) {
+			
+			return true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
 
+	public boolean aluga(int id) {
+
+		final String sql = "UPDATE filme SET estaDisponivel = 0 WHERE id = ?";
+
+		try (Connection con = this.conFactory.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+
+			stmt.setInt(1, id);
+			stmt.executeUpdate();
+
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			return false;
+		}
 	}
 
 	public List<Filme> listarAlugados() {
@@ -100,4 +160,7 @@ public class FilmeDAO {
 
 		return filmes;
 	}
+
+
+	
 }

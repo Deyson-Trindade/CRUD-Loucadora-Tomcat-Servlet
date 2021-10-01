@@ -28,7 +28,6 @@ public class CadastroDeFilmeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		try {
 			
 			final String nome = request.getParameter("nome");
 			final String sinopse = (String) request.getParameter("sinopse");
@@ -41,11 +40,7 @@ public class CadastroDeFilmeServlet extends HttpServlet {
 			filmeDao.insere(filme);
 			
 			response.sendRedirect("filmeCadastrado");
-
-		} catch (Exception e) {
-			throw new IOException();
-		} 
-			
+		
 		
 	}
 

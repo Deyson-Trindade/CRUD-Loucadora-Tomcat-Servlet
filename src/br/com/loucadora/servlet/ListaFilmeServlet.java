@@ -21,20 +21,14 @@ public class ListaFilmeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		try {
-			
-			final FilmeDAO dao = new FilmeDAO();
-			
-			List<Filme> filmes = dao.listarDisponiveis();
-			
-			request.setAttribute("filmes", filmes);
+		final FilmeDAO dao = new FilmeDAO();
 
-			RequestDispatcher rd = request.getRequestDispatcher("/listaFilmes.jsp");
-			rd.forward(request, response);
+		final List<Filme> filmes = dao.listarDisponiveis();
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		request.setAttribute("filmes", filmes);
+
+		RequestDispatcher rd = request.getRequestDispatcher("/listaFilmes.jsp");
+		rd.forward(request, response);
 
 	}
 

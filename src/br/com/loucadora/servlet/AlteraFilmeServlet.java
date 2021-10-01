@@ -1,9 +1,6 @@
 package br.com.loucadora.servlet;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.loucadora.banco.ConnectionFactory;
-
+import br.com.loucadora.dao.FilmeDAO;
+import br.com.loucadora.model.Filme;
 
 @WebServlet("/alteraFilme")
 public class AlteraFilmeServlet extends HttpServlet {
@@ -22,57 +19,17 @@ public class AlteraFilmeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		FilmeDAO filmeDao = new FilmeDAO();
+		
 		Integer id = Integer.valueOf(request.getParameter("id"));
-		String sql = "SELECT * FROM filme WHERE id = ?";
+		filmeDao.recupera(id);
 		
-		ConnectionFactory conFactory = new ConnectionFactory();
-		Connection con = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		
-		try {
-			
-			con = conFactory.getConnection();
-			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, id);
-			
-			rs = stmt.executeQuery();
-			
-			if( rs.next()) {
-				request.setAttribute("nome", rs.getString("nome"));
-				request.setAttribute("ano", rs.getInt("ano"));
-				request.setAttribute("sinopse", rs.getString("sinopse"));
-				request.setAttribute("estaDisponivel", rs.getBoolean("estaDisponivel"));
-				
-			}
-			
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if(rs != null) {
-					rs.close();
-				}
+		/* ver uma maneira de usar o setAttribute();
+		 * para passar os dados para tela de alterar
+		 * 
+		 */
 
-				if(stmt != null) {
-					stmt.close();
-				}
-				
-				if( con != null) {
-					con.close();
-				}	
-				
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-		}
-		
-		
 
-		
-		
-		
 		RequestDispatcher rd = request.getRequestDispatcher("/alteraFilme.jsp");
 		rd.forward(request, response);
 	}
@@ -80,33 +37,18 @@ public class AlteraFilmeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String nome = request.getParameter("nome");
-		String sinopse = request.getParameter("sinopse");
-		Integer estaDisponivel = Integer.valueOf(request.getParameter("estaDisponivel"));
-		String paramId = request.getParameter("id");
-		Integer id = Integer.valueOf(paramId);
+		final String nome = request.getParameter("nome");
+		final String sinopse = request.getParameter("sinopse");
+		final boolean estaDisponivel = "on".equalsIgnoreCase(request.getParameter("estaDisponivel"));
+		final Integer ano = Integer.parseInt(request.getParameter("ano"));
 
-		String sql = "UPDATE filme set nome = ?, ano=?, sinopse=?, estaDisponivel=? WHERE id = ?";
 
-		ConnectionFactory conFactory = new ConnectionFactory();
-		Connection con = conFactory.getConnection();
-		PreparedStatement stmt = null;
+		final Filme filme = new Filme(nome, sinopse, ano, estaDisponivel);
+		final FilmeDAO filmeDao = new FilmeDAO();
+
+		filmeDao.altera(filme);
 		
-
-		try {
-
-		stmt = con.prepareStatement(sql);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-
-		}
+		response.sendRedirect("listaFilme");
 
 	}
 }
