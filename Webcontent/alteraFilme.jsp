@@ -4,23 +4,25 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="./css/form.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
 
 	<form action="/loucadora/alteraFilme" method="post">
 
-		
+		<div class="configuracaoDiv">
 			<label>Nome:</label>
-			<input type="text" name="nome" value="${nome}" /> <br>
-			<label>Ano:</label> 
-			<input type="number" name="ano" value="${ano}" /> <br>
-			<label>Sinopse:</label>
-			<textarea rows="10" cols="30" name="sinopse" >${sinopse}</textarea>
-			<label>Disponivel em estoque</label>
-			<input type="checkbox" name="estaDisponivel" value="${estaDisponivel}" />
+			<input class="configInputNome" type="text" name="nome" value="${filme.nome}" /> <br>
+			<label class="configAno">Ano:</label> 
+			<input class="configInputAno" type="number" name="ano" value="${filme.ano}" /> <br>
+			<label class="configSinopse">Sinopse:</label>
+			<textarea rows="10" cols="30" name="sinopse" >${filme.sinopse}</textarea><br>
+			<label>Disponivel em estoque</label> 
+			<input type="checkbox" name="estaDisponivel" value="${filme.estaDisponivel}" />
 			
-			<button type="submit" >Enviar</button>		
+			<button type="submit" >Enviar</button>	
+		</div>	
 		</form>	
 
 </body>

@@ -70,50 +70,46 @@ public class FilmeDAO {
 		}
 
 	}
-	
-	public List<Filme> recupera(Integer id) {
-		
-		final List<Filme> filmes = new ArrayList<>();
-		
+
+	public Filme recupera(Integer id) {
+
+		final Filme filme = new Filme();
+
 		String sql = "SELECT * FROM filme WHERE id = ?";
-		
-		try (Connection con = this.conFactory.getConnection();
-				PreparedStatement stmt = con.prepareStatement(sql);
-				ResultSet rs = stmt.executeQuery()) {
+
+		try (Connection con = this.conFactory.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+			
 			
 			stmt.setInt(1, id);
-
-			if (rs.next()) {
-				
-				Filme filme = new Filme();
-				filme.setNome(rs.getString("nome"));
-				filme.setSinopse(rs.getString("sinopse"));
-				filme.setAno(rs.getInt("ano"));
-				filme.setEstaDisponivel(rs.getBoolean("estaDisponivel"));
-				
-				filmes.add(filme);
+			try(ResultSet rs = stmt.executeQuery()) {
+				if (rs.next()) {
+					filme.setNome(rs.getString("nome"));
+					filme.setSinopse(rs.getString("sinopse"));
+					filme.setAno(rs.getInt("ano"));
+					filme.setEstaDisponivel(rs.getBoolean("estaDisponivel"));
+				}
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return filmes;
+
+		return filme;
 	}
-	
+
 	public boolean altera(Filme filme) {
-		
+
 		final String sql = "UPDATE filme set nome = ?, ano=?, sinopse=?, estaDisponivel=? WHERE id = ?";
-		
-		try(Connection con = this.conFactory.getConnection(); PreparedStatement stmt = con.prepareStatement(sql);) {
-			
+
+		try (Connection con = this.conFactory.getConnection(); PreparedStatement stmt = con.prepareStatement(sql);) {
+
 			return true;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
-		
+
 	}
 
 	public boolean aluga(int id) {
@@ -161,6 +157,4 @@ public class FilmeDAO {
 		return filmes;
 	}
 
-
-	
 }

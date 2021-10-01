@@ -20,15 +20,11 @@ public class AlteraFilmeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		FilmeDAO filmeDao = new FilmeDAO();
-		
 		Integer id = Integer.valueOf(request.getParameter("id"));
-		filmeDao.recupera(id);
+		Filme filme = filmeDao.recupera(id);
 		
-		/* ver uma maneira de usar o setAttribute();
-		 * para passar os dados para tela de alterar
-		 * 
-		 */
-
+		
+		request.setAttribute("filme", filme);
 
 		RequestDispatcher rd = request.getRequestDispatcher("/alteraFilme.jsp");
 		rd.forward(request, response);

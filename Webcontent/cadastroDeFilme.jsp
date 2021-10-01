@@ -16,7 +16,7 @@
 		cadastrar no inventário?</h1>
 
 	<form action="/loucadora/cadastroDeFilme" method="post">
-		<div>
+		<div class="configuracaoDiv">
 			<label>Nome:</label> <input type="text" name="nome"
 				class="configInputNome" /> <br> <label class="configAno">Ano:</label>
 			<input type="number" name="ano" class="configInputAno" /> <br>
