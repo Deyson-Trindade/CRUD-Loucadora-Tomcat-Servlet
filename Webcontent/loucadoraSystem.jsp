@@ -11,10 +11,18 @@
 <title>Loucadora System</title>
 </head>
 <body>
-	<div class="div-style">
+	<nav class="nav-bar">
+		<h1>Loucadora System</h1> 
+	</nav>
+	<div class="container">
 		<a class="botao" href="/loucadora/filmesAlugados" >Filmes Alugados</a>
 		<a class="botao" href="/loucadora/listaFilme" >Alugar Filmes</a>
 		<a class="botao" href="/loucadora/cadastroDeFilme" >Cadastrar Filme Novo</a>
 	</div>
+	<footer class="rodape">
+		<p>Autor: Deyson Trindade</p>
+		<p><a class="repo" href="https://github.com/Deyson-Trindade">Mais de meus trabalhos</a></p>
+		<p> Ligue para (11)4002-8922 para retirar suas dúvidas</p>
+	</footer>
 </body>
 </html>

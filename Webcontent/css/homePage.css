@@ -1,45 +1,58 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin:0;
+}
+
 body{
+	height: 100vh;
 	background-image: url("avengersBG.jpg");
 	background-position: top;
 	background-size: cover;
 	background-repeat: no-repeat;
+	place-items: center;
+	font-family: sans-serif;
+	color: white;
 }
 
-.div-style {
+.nav-bar {
+	padding: 1em;
+	background-image: url();
+	font-weight: bold;
+	font-family: cursive;
+}
+
+.container {
 	height: 100%;
 	width: 50%;
 	display: flex;
-	position: absolute;
+	grid-template-columns: 1fr 1fr 1fr;
 	align-items: center;
-	left: 500px;
 }
 
 .botao {
 	cursor: pointer; 
 	border : 0px;
-	border-radius: 2px;
-	margin: 15px;
+	border-radius: 5px;
 	padding: 5px;
+	margin: 1em;
 	background-color: black;
-	border: 0px;
+	color: white;
 }
 
-.botao::before {
-	cursor: pointer; 
-	border : 0px;
-	border-radius: 2px;
-	margin: 15px;
-	padding: 5px;
-	background-color: black;
-	border: 0px;
-}
-
-.botao::after {
-	content: "";
-	border: 0px;
-	border-radius: 2px;
-	margin: 15px;
-	padding: 5px;
-	color: black;
+.botao:hover {
+	text-decoration: none;
 	background-color: white;
+	color: black;
+}
+
+.rodape {
+	
+	background-image: url(footer.jpg);
+	text-align: center;
+	font-size: 10px;
+}
+
+.repo {
+	color: white;
+	text-decoration: none;
 }
