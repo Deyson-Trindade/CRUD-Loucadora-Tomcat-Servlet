@@ -1,7 +1,5 @@
 package br.com.loucadora.model;
 
-import br.com.loucadora.model.Endereco;
-
 public class Cliente {
 	
 	private String nome;

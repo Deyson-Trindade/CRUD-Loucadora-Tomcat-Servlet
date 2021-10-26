@@ -25,8 +25,6 @@ public class AlugaFilmeEtapaFinalServlet extends HttpServlet {
 			
 		response.sendRedirect("listaFilme");
 
-
-
 	}
 
 }
