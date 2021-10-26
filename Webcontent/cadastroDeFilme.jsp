@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,7 @@
 <title>Cadastro de filme</title>
 </head>
 <body>
+<c:import url="logout.jsp"/>
 
 	<h1>Bem vindo ao cadastro de filmes, qual filme você deseja
 		cadastrar no inventário?</h1>

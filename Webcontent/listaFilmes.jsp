@@ -12,6 +12,7 @@
 <title>Lista Filmes</title>
 </head>
 <body>
+<c:import url="logout.jsp"/>
 	<c:choose>
 		<c:when test="${not empty filmes}">
 			<header>

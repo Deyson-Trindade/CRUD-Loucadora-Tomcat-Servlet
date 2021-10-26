@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,22 +9,23 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="logout.jsp" />
 
 	<form action="/loucadora/alteraFilme" method="post">
 
 		<div class="configuracaoDiv">
-			<label>Nome:</label>
-			<input class="configInputNome" type="text" name="nome" value="${filme.nome}" /> <br>
-			<label class="configAno">Ano:</label> 
-			<input class="configInputAno" type="number" name="ano" value="${filme.ano}" /> <br>
-			<label class="configSinopse">Sinopse:</label>
-			<textarea rows="10" cols="30" name="sinopse" >${filme.sinopse}</textarea><br>
-			<label>Disponivel em estoque</label> 
-			<input type="checkbox" name="estaDisponivel" value="${filme.estaDisponivel}" />
-			
-			<button type="submit" >Enviar</button>	
-		</div>	
-		</form>	
+			<label>Nome:</label> <input class="configInputNome" type="text"
+				name="nome" value="${filme.nome}" /> <br> <label
+				class="configAno">Ano:</label> <input class="configInputAno"
+				type="number" name="ano" value="${filme.ano}" /> <br> <label
+				class="configSinopse">Sinopse:</label>
+			<textarea rows="10" cols="30" name="sinopse">${filme.sinopse}</textarea>
+			<br> <label>Disponivel em estoque</label> <input type="checkbox"
+				name="estaDisponivel" value="${filme.estaDisponivel}" />
+
+			<button type="submit">Enviar</button>
+		</div>
+	</form>
 
 </body>
 </html>
