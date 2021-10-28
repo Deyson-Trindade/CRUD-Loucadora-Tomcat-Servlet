@@ -1,4 +1,6 @@
-<a href="/loucadora/login">Sair</a>
+
+
+<a href="/loucadora/logout">Sair</a>
 
 <br>
 <br>

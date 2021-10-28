@@ -2,7 +2,6 @@ package br.com.loucadora.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +18,9 @@ public class LogoutServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession sessao = request.getSession();
-		sessao.invalidate();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/logout.jsp");
-		rd.forward(request, response);
+		sessao.invalidate();
+		response.sendRedirect("login");
 	}
 
 }
