@@ -27,7 +27,9 @@ public class Autorizacao implements Filter {
 		String[] urlSplited = url.split("/");
 		String lastPartUrl = urlSplited[urlSplited.length-1]; 
 		
-		if("login".equals(lastPartUrl)) {
+		
+		
+		if("login".equals(lastPartUrl) || url.endsWith("css")) {
 			chain.doFilter(request, response);
 			return;
 		}

@@ -40,7 +40,6 @@ public class LoginServlet extends HttpServlet {
 			
 			HttpSession sessao = request.getSession();
 			sessao.setAttribute("funcionarioLogado", funcionario);
-			System.out.println(sessao.getAttribute("funcionarioLogado"));
 			response.sendRedirect("loucadoraSystem");
 		} else {
 			response.sendRedirect("login");

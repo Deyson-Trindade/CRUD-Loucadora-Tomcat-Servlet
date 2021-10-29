@@ -1,6 +1,6 @@
 
 
-<a href="/loucadora/logout">Sair</a>
+<a href="logout">Sair</a>
 
 <br>
 <br>

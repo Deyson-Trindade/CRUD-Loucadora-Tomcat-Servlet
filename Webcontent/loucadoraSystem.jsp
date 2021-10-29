@@ -14,9 +14,9 @@
 	</nav>
 	<c:import url="logout.jsp"/>
 	<div class="container">
-		<a class="botao" href="/loucadora/filmesAlugados">Filmes Alugados</a>
-		<a class="botao" href="/loucadora/listaFilme">Alugar Filmes</a> <a
-			class="botao" href="/loucadora/cadastroDeFilme">Cadastrar Filme
+		<a class="botao" href="filmesAlugados">Filmes Alugados</a>
+		<a class="botao" href="listaFilme">Alugar Filmes</a> <a
+			class="botao" href="cadastroDeFilme">Cadastrar Filme
 			Novo</a>
 	</div>
 	<footer class="rodape">
